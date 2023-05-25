@@ -2,7 +2,7 @@
   "name": "M02UF4_2223",
   "version": "1.0.0",
   "description": "Esto es el codigo de la asignatura de mongodb + nodejs",
-  "main": "init.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
