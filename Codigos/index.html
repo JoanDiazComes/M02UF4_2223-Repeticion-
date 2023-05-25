@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+ <head>
+        <meta charset="UTF-8" />
+        <title>ENTIerrame!</title>        
+ </head>
+ <body>
+
+  <h1>ENTIerrame!</h1>
+
+  <nav>
+
+  <form id="characters">
+    <ul>
+       <li><button id="payoh-button" onclick="getCharacterData(1); return false;">Payoh</button></li>
+       <li><button id="yuca-button" onclick="getCharacterData(2); return false;">Yuca</button></li>
+       <li><button id="yulen-button" onclick="getCharacterData(3); return false;">Yulen</button></li>
+       <li><button id="josema-button" onclick="getCharacterData(4); return false;">Josema</button></li>
+    </ul>
+  </form>
+
+  </nav>
+
+  <main id="contents-main">
+      <h2>Contenidos de la página</h2>
+  </main>
+
+        <form action="/character_form" method="POST">
+                <h2> Añadir personaje </h2>
+        <p>
+          <label for="character-name"> Nombre: </label>
+          <input type="text" name="name" id="character-name"/>
+        </p>
+
+        <p>
+          <label for="character-age"> Edad: </label>
+          <input type="number" name="age" id="character-age"/>
+        </p>
+
+        <p>
+          <input type="submit" value="Añadir personaje"/>
+        </p>
+
+        </form>
+        <script>
+           function Characters() {
+                fetch("http://192.168.1.18:8080/characters")
+                        .then(response => response.json())
+                        .then(characters => {
+
+                        let list = "<ul>";
+                        for (let i = 0; i < characters.length; i++) {
+                           list += "<li>"+characters[i]+"</li>";
+                        }
+                           list += "</ul>"
+
+                            document.getElementById("contents-main").innerHTML = list;
+                                });
+                        }
+
+           function Items() {
+                fetch("http://192.168.1.18:8080/items")
+                          .then(response => response.json())
+                          .then(items => {
+
+                          let list = "<ul>";
+                          for (let i = 0; i < items.length; i++) {
+                             list += "<li>"+items[i]+"</li>";
+                          }
+                             list += "</ul>"
+
+                             document.getElementById("contents-main").innerHTML = list;
+                          });
+                        }
+
+           function Weapons () {
+                fetch("http://192.168.1.18:8080/weapons")
+                           .then(response => response.json())
+                           .then(weapons => {
+
+                           let list = "<ul>";
+                           for (let i = 0; i < weapons.length; i++) {
+                              list += "<li>" + weapons[i] + "</li>";
+                           }
+
+                              list += "</ul>";
+
+                              document.getElementById("contents-main").innerHTML = list;
+                           });
+                        }
+
+            function CharacterData(id_character) {
+                let url = "http://192.168.1.18:8080/?id_character=1" + id_character;
+                        fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                        console.log(data);
+                        let list = "<ul>";
+
+                        list += "<li>Name: " + data[0].name + "</li>";
+                        list += "<li>Age: " + data[0].age + "</li>";
+                        list += "<li>Gender: " + data[0].gender + "</li>";
+                        list += "<li>Height: " + data[0].height + "</li>";
+                        list += "<li>Weight: " + data[0].weight + "</li>";
+
+                        list += "</ul>";
+
+                        document.getElementById("contents-main").innerHTML = list;
+                        });
+                }
+
+                </script>
+        </body>
+</html>

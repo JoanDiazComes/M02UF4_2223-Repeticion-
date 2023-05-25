@@ -1,0 +1,22 @@
+{
+  "name": "M02UF4_2223",
+  "version": "1.0.0",
+  "description": "Esto es el codigo de la asignatura de mongodb + nodejs",
+  "main": "init.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoanDiazComes/M02UF4_2223-Repeticion-"
+  },
+  "author": "JOAN DIAZ COMES",
+  "license": "GNU General Public License v3.0",
+  "bugs": {
+    "url": "https://github.com/JoanDiazComes/M02UF4_2223-Repeticion-"
+  },
+  "homepage": "https://github.com/JoanDiazComes/M02UF4_2223-Repeticion-",
+  "dependencies": {
+    "mongodb": "^5.0.0"
+  }
+}
